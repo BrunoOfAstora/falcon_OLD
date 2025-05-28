@@ -1,4 +1,5 @@
 #include "flcn-sha256.h"
+#include "flcn-md5.h"
 #include "flcn-command.h"
 #include <stdio.h>
 #include <string.h>
@@ -31,11 +32,23 @@ int main(int argc, char *argv[])
 	break;
 
 
-      case CMD_SHA256:
-	if(argc < 3 || argc > 4)
-	  printf("\n\n The sha256 command can receive one and only one file per time \n\n");
+      case CMD_SHA256: //SHA256
+	if(argc != 3)
+	{
+	  printf("\n\n The sha256 command should receive one and only one argument(file) \n\n");
 	  break;
+	}
 	calculate_hash_256(userFileInput);
+	break;
+
+
+      case CMD_MD5:   //MD5
+	if(argc != 3)
+	{
+	 printf("\n\n The MD5 command should receive one and only one argument(file)");
+	 break;
+	}
+	calculate_md5(userFileInput);
 	break;
 
 
