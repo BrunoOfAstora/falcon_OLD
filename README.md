@@ -1,4 +1,5 @@
-# Falcon [W.I.P]
+<h1 align="center">F.A.L.C.O.N</h1>
+<h2 align="center">File Analysis & Lib for Checksums Obfuscation & Nuking </h2>
 
 **Falcon** é uma ferramenta de linha de comando (CLI) desenvolvida em C com foco em segurança e integridade de arquivos. O objetivo principal é prover um conjunto de utilitários capazes de calcular e verificar hashes (como SHA-256), realizar operações seguras de remoção de arquivos (`shred`), e outras funcionalidades relacionadas à verificação e manipulação segura de dados.
 
