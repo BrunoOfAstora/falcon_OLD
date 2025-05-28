@@ -1,36 +1,40 @@
+/*flcn-sha256.c*/
 #include "flcn-sha256.h"
-#include <openssl/sha.h>
+#include <openssl/evp.h>
 #include <stdio.h>
 #include <stdint.h>
 
-#define FF fflush(stdout)
-#define BUFFER_SHA256 4096
-#define BUFFER_FINAL 32
+#define BUFFER_FILE 4096
+
+/*>Now updated to EVP<*/
 
 void calculate_hash_256(const char *userFileInput)
 {
-  int sha256HashInit, sha256HashUpdate, sha256HashFinal, j;
-
-  uint8_t buffer[BUFFER_SHA256];
-  uint8_t bufferFinal[BUFFER_FINAL];
-
   size_t size;	
   FILE *file;
-  SHA256_CTX file_hash_state;
   file = fopen(userFileInput, "rb");
+  if(!file){ perror("fopen"); return;}
 
-  sha256HashInit = SHA256_Init(&file_hash_state);
+  uint8_t buffer[BUFFER_FILE];
+  unsigned char md_buffer[EVP_MAX_MD_SIZE];  // digest
+  unsigned int leng, j;
+
+  EVP_MD_CTX *ctx = EVP_MD_CTX_new();
+  EVP_DigestInit_ex(ctx, EVP_sha256(), NULL);
 
   while((size = fread(buffer, 1, sizeof(buffer), file)) > 0)
-   sha256HashUpdate = SHA256_Update(&file_hash_state, buffer, size);
+   EVP_DigestUpdate(ctx, buffer, size);
   
-  sha256HashFinal = SHA256_Final(bufferFinal ,&file_hash_state);
+  EVP_DigestFinal_ex(ctx, md_buffer, &leng);
+
+  EVP_MD_CTX_free(ctx);
+
   fclose(file);
 
   printf("\n\nSHA256:  ");
   for(j = 0; j < 32; j++)
   {
-   printf("%02x",bufferFinal[j]);
+   printf("%02x",md_buffer[j]);
   }
 
    printf("\n\n");

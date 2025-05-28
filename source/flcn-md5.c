@@ -32,6 +32,7 @@ EVP_MD_CTX_free(ctx);
 
 printf("\n\nMD5: ");
 
+fclose(file);
 for(i = 0; i < leng; i++)
 {
   printf("%02x", md[i]);
