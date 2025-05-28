@@ -7,8 +7,8 @@
 
 ## Funcionalidades planejadas [TO-DO]
 
-- [x] Cálculo de hash SHA-256 de arquivos
-- [ ] Cálculo de MD5 de arquivos
+- [X] Cálculo de hash SHA-256 de arquivos
+- [X] Cálculo de MD5 de arquivos
 - [ ] Salvar o hash de todos os arquivos no diretório atual
 - [ ] Verificação de integridade com base em banco de dados de checksums
 - [ ] Operação segura de destruição de arquivos (`shred`)
