@@ -1,38 +1,50 @@
 #include "flcn-sha256.h"
+#include "flcn-command.h"
 #include <stdio.h>
 #include <string.h>
 
 /* flc-main.c */
 
+void print_help()
+{
+printf("\n>>Help Menu\n\n Usage => falcon <option> <file>\n\n Functions:\n  sha256 \t Calculates the SHA256 of the file\n  md5 \t\t Return the hash MD5 of the file\n  \n\n");
+return;
+}
+
+
 int main(int argc, char *argv[])
 {
+
+     if(argc < 2){ printf("\nERROR : Less than one argument\n\n\tUsage => falcon <option> <file> \n\n"); return 0; }
+	
+
     char *userFileInput = argv[2];
     char *options = argv[1];
+    flcnCommand cmd;
 
-    if(argc < 2)
+    cmd = parse_command(options);
+    
+    switch(cmd)
     {
-        printf("\nERROR : Less than one argument\n\tUsage => falcon <option> <file> \n\n");
-        return 0;
-    }
+      case CMD_HELP:
+	print_help();
+	break;
 
-    if(strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)
-    {
-        printf("\n> HELP MENU\n\n\n -h or --help \t Help Menu\n\n sha256 \t return sha256 of the file passed\n\n verify \t checks in the database, if the checksum corresponds\n\n\n");
-        return 0;
-    }
 
-    else if(strcmp(argv[1], "sha256") == 0)
-    {
-        calculate_hash_256(userFileInput);
-        return 0;
-    }
+      case CMD_SHA256:
+	if(argc < 3 || argc > 4)
+	  printf("\n\n The sha256 command can receive one and only one file per time \n\n");
+	  break;
+	calculate_hash_256(userFileInput);
+	break;
 
-    else 
-    {
-        printf("Invalid option.\n");
-        return 0;
+
+      default:
+	printf("invalid command, try 'falcon -h' for help\n");
+	break;
     }
 
 return 0;
+
 }
 
