@@ -24,7 +24,7 @@ EVP_MD_CTX *ctx = EVP_MD_CTX_new(); /*<= Store the context of the chosen algorth
 EVP_DigestInit_ex(ctx, EVP_md5(), NULL); /*initiates the md5 algorithim*/
 
 while((size = fread(buffer, 1, sizeof(buffer), file)) > 0)
- EVP_DigestUpdate(ctx, file, size); /*Process the data*/
+ EVP_DigestUpdate(ctx, buffer, size); /*Process the data*/
 
 EVP_DigestFinal_ex(ctx, md, &leng); /*ends and stores the hash*/
 
