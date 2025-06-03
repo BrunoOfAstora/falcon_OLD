@@ -1,14 +1,17 @@
 #include "flcn-sha256.h"
 #include "flcn-md5.h"
 #include "flcn-command.h"
+#include "flcn-save.h"
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-						/* flc-main.c */
+										/* flc-main.c */
 
 void print_help()
 {
 printf("\n>>Help Menu\n\n Usage => falcon <option> <file>\n\n Functions:\n  sha256 \t Calculates the SHA256 of the file\n  md5 \t\t Return the hash MD5 of the file\n More Functions will be added soon \n\n");
+
 return;
 }
 
@@ -36,9 +39,9 @@ int main(int argc, char *argv[])
     case CMD_SHA256: //SHA256
 	if(argc != 3)
 	{
-	  printf("\n\n The sha256 command should receive one and only one argument(file) \n\n");
-	  break;
+	  printf("\n\n The sha256 command should receive one and only one argument(file) \n\n"); break;
 	}
+
 	calculate_hash_256(userFileInput);
 	break;
 
@@ -46,12 +49,22 @@ int main(int argc, char *argv[])
     case CMD_MD5:   //MD5
 	if(argc != 3)
 	{
-	 printf("\n\n The MD5 command should receive one and only one argument(file)");
-	 break;
+	 printf("\n\n The MD5 command should receive one and only one argument(file)"); break;
 	}
+
 	hash_md5 = calculate_md5(userFileInput);
     printf("\n\nMD5: %s\n\n", hash_md5);
     free(hash_md5);
+	break;
+
+    
+    case CMD_SAVE: //Save to File
+	if(argc != 3)
+    {
+	 printf("\n\n Need to specify the file, use 'falcon -h' for help\n\n"); break;
+    }
+    
+    saveInFile(userFileInput, calculate_md5(userFileInput));
 	break;
 
 

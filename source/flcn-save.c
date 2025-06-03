@@ -18,8 +18,6 @@ FILE *file;
 file = fopen(file_name_buffer, "w");
 if(!file){perror("error while opening file"); return;}
 
-file = fopen(file_name_buffer, "a")
-
 fprintf(file, "%s/%s\n", file_name, file_hash);
 fclose(file);
 
