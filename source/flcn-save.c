@@ -1,3 +1,5 @@
+											/*flcn-save.c*/
+
 #include "flcn-save.h"
 #include "flcn-md5.h"
 
@@ -11,9 +13,7 @@ char file_hash_buffer[128];
 snprintf(file_hash_buffer, sizeof(file_hash_buffer),"%s",file_hash);
 snprintf(file_name_buffer, sizeof(file_name_buffer),"%s-hash", file_name); // or argv[1] 
 
-
-FILE *file;
-
+FILE *file;             //add morespecific error cases
 
 file = fopen(file_name_buffer, "w");
 if(!file){perror("error while opening file"); return;}

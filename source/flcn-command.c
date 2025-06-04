@@ -11,7 +11,7 @@ flcnCommand parse_command(const char *command)
   else if(strcmp(command, "decrypt") == 0) return CMD_DECRYPT;
   else if(strcmp(command, "compare") == 0) return CMD_COMPARE;
   else if(strcmp(command, "--help") == 0 || strcmp(command, "-h") == 0) return CMD_HELP;
-  else if(strcmp(command, "sv") == 0) return CMD_SAVE;
+  else if(strcmp(command, "save") == 0) return CMD_SAVE;
   else return CMD_INVALID;
 
 }
