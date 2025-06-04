@@ -76,9 +76,7 @@ int main(int argc, char *argv[])
 	{
 	printf("\n\nNeed to specify the file, use 'falcon -h' for help."); break;
 	}
-	snprintf(verify_str, MAX_STR, "%s-hash", userFileInput);
-
-	verify_hash(userFileInput, verify_str);
+	verify_hash(userFileInput, argv[3]);
 	break;
 
 

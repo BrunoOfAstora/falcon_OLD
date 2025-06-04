@@ -29,11 +29,11 @@ FILE *original_file;
 
 md5_result = calculate_md5(userFileInput);
 
-comparasion_file = fopen(savedFilePath, "r");
-if(!comparasion_file) { perror("error while opening the savedFilePath\n"); return; }
-
 original_file = fopen(userFileInput, "r");
-if(!original_file) { perror("error while opening userFileInput\n"); return; }
+if(!original_file) { perror("\nerror in verify function while opening userFileInput\n"); return; }
+
+comparasion_file = fopen(savedFilePath, "r");
+if(!comparasion_file) { perror("\nerror in verify function while opening the savedFilePath\n"); return; }
 
 if((result = fgets(line_buffer, MAX, comparasion_file)) != NULL)
 	token = strtok_r(result, "/", &state); //Check the strtok_r documentation
@@ -49,7 +49,6 @@ str_buffer[1][strcspn(str_buffer[1], "\n")] = '\0';
 
 if((strcmp(str_buffer[0], userFileInput)) == 0) { printf("\n\033[1;32m[OK!]\033[0m File Name match.\n"); }
 	else{ printf("\n\033[1;33m[Warning]\033[0m File Name Does Not Match!\n"); }
-
 if((strcmp(str_buffer[1], md5_result)) == 0) { printf("\n\033[1;32m[OK!]\033[0m Hash Checksum match.\n"); }
 	else{ printf("\n\033[1;33m[CAUTION]\033[0m Checksum Does Not Mactch!"); }
 
