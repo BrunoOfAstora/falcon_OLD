@@ -1,0 +1,11 @@
+								/*TODO*/
+
+-Make the functions more modular, and less retrictive
+
+-Add error handling in all of the funnctions
+
+-Add file shredder
+
+-Make a way to verify automaticaly
+
+-Make the "save function" create a folder and save in it
