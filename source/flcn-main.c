@@ -23,11 +23,7 @@ int main(int argc, char *argv[])
 {
 
     if(argc < 2){ printf("\nERROR : Less than one argument\n\n\tUsage => falcon <option> <file> \n\n"); return 0; }
-
-	//verify strings
-	char verify_str[MAX_STR];	
-  	//end
-  	
+	
     char *hash_md5; 	
     char *userFileInput = argv[2];
     char *options = argv[1];
