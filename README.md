@@ -9,8 +9,9 @@
 
 - [X] Cálculo de hash SHA-256 de arquivos
 - [X] Cálculo de MD5 de arquivos
+- [x] Cálculo de SHA256 de Arquivos
 - [ ] Salvar o hash de todos os arquivos no diretório atual
-- [ ] Verificação de integridade com base em banco de dados de checksums
+- [X] Verificação de integridade com base em banco de dados de checksums(Parcial)
 - [ ] Operação segura de destruição de arquivos (`shred`)
 - [X] Interface de ajuda via `--help` e `-h`
 - [ ] Outras opções CLI relacionadas à segurança de arquivos
