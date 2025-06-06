@@ -3,6 +3,7 @@
 #include "flcn-command.h"
 #include "flcn-save.h"
 #include "flcn-verify.h"
+#include "flcn-rmdup.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -73,6 +74,15 @@ int main(int argc, char *argv[])
 	printf("\n\nNeed to specify the file, use 'falcon -h' for help."); break;
 	}
 	verify_hash(userFileInput, argv[3]);
+	break;
+
+
+	case CMD_RMDUP:
+	if(argc != 2)
+	{
+	printf("\n\nErrormdg_rmdup\n\n"); break;
+	}
+	rmdup();
 	break;
 
 

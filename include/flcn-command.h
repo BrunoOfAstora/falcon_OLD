@@ -15,7 +15,8 @@ typedef enum
 	CMD_DECRYPT,
 	CMD_COMPARE,
 	CMD_HELP,
-	CMD_SAVE
+	CMD_SAVE,
+	CMD_RMDUP
 
 }flcnCommand;
 
