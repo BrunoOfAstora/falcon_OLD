@@ -19,6 +19,7 @@
 ## Compilação
 
 Para compilar o Falcon, utilize um compilador C como `gcc` e utilize o `make` para fazerr a build:
+(O programa atualmente funciona apenas em sistemas Linux)
 
 ```bash
 git clone https://github.com/BrunoOfAstora/falcon/
