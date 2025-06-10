@@ -52,7 +52,7 @@ if(ptr_dir)
 	 } 
 	 else
 	 {
-	  printf("\nDuplicated: %s (same: %s)\n", fname, entry->filename);
+	  printf("\n  ->Removed: %s (same: %s)\n", fname, entry->filename);
 	  remove(fname);
 	
 	 }
@@ -65,7 +65,14 @@ if(ptr_dir)
 
 closedir(ptr_dir);
 
- }
+HashEntry *current_entry, *tmp;
+HASH_ITER(hh, hash_map, current_entry, tmp)
+{
+    HASH_DEL(hash_map, current_entry);
+    free(current_entry);
+}
+
+ } 
  else{ perror("Can't open dir"); return; }
 
 return;
