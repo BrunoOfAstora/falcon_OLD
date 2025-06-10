@@ -10,6 +10,7 @@
 - [X] Cálculo de hash SHA-256 de arquivos
 - [X] Cálculo de MD5 de arquivos
 - [x] Cálculo de SHA256 de Arquivos
+- [x] Remover Duplicatas no diretório atual 
 - [ ] Salvar o hash de todos os arquivos no diretório atual
 - [X] Verificação de integridade com base em banco de dados de checksums(Parcial)
 - [ ] Operação segura de destruição de arquivos (`shred`)
