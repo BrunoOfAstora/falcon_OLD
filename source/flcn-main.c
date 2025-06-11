@@ -4,6 +4,7 @@
 #include "flcn-save.h"
 #include "flcn-verify.h"
 #include "flcn-rmdup.h"
+#include "flcn-sha384.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -87,6 +88,17 @@ int main(int argc, char *argv[])
 	}
 	rmdup();
 	break;
+
+
+	case CMD_SHA384:
+	if(argc != 3)
+	{
+	printf("\n\nYour need to specfy the file, use 'falcon -h' for help\n\n"); break;
+	}
+	char *sha384 = calculate_hash_384(userFileInput);
+	printf("\n\nSHA384: %s\n\n", sha384);
+	break;
+
 
 
     default:

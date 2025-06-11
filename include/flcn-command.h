@@ -7,6 +7,7 @@ typedef enum
 {
 	CMD_INVALID,
 	CMD_SHA256,
+	CMD_SHA384,
 	CMD_MD5,
 	CMD_VERIFY,
 	CMD_SHRED,
