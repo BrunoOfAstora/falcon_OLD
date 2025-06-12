@@ -7,6 +7,7 @@
 
 ## Funcionalidades planejadas [TO-DO]
 
+
 - [X] Cálculo de hash SHA-256 de arquivos
 - [X] Cálculo de MD5 de arquivos
 - [x] Cálculo de SHA256 de Arquivos
