@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
     if(argc < 2){ printf("\nERROR : Less than one argument\n\n\tUsage => falcon <option> <file> \n\n"); return 0; }
 
-	char *save_md5;	
+	char *save_384;	
     char *hash_md5; 	
     char *userFileInput = argv[2];
     char *options = argv[1];
@@ -66,9 +66,9 @@ int main(int argc, char *argv[])
     {
 	 printf("\n\n Need to specify the file, use 'falcon -h' for help.\n\n"); break;
     }
-	save_md5 = calculate_md5(userFileInput);
-    saveInFile(userFileInput, save_md5);
-	free(save_md5);
+	save_384 = calculate_hash_384(userFileInput);
+    saveInFile(userFileInput, save_384);
+	free(save_384);
 	break;
 
 
