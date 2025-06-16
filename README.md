@@ -14,7 +14,7 @@
 - [x] Remover Duplicatas no diretório atual 
 - [ ] Salvar o hash de todos os arquivos no diretório atual
 - [X] Verificação de integridade com base em banco de dados de checksums(Parcial)
-- [ ] Operação segura de destruição de arquivos (`shred`)
+- [ ] Operação segura de shred de arquivos
 - [X] Interface de ajuda via `--help` e `-h`
 - [ ] Outras opções CLI relacionadas à segurança de arquivos
 
