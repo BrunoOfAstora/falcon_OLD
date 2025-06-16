@@ -75,11 +75,13 @@ void saveInFile(char *file_name, char *file_hash)
                     }
 
                     fprintf(file_single, "%s/%s\n", fname, hash);
+					printf("Saving %s hash...\n", fname);
                     fclose(file_single);
                     free(hash);
                 }
             }
             closedir(currDir);
+			printf("\n\n Done!\n\n");
         }
         return;
     }
