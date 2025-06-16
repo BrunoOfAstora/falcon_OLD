@@ -40,7 +40,6 @@ void saveInFile(char *file_name, char *file_hash)
     snprintf(dir_path, sizeof(dir_path), "%s/%s", home, "flcn-hashes");
 
 
-
     if (mkdir(dir_path, 0755) == -1) 
 	{
 		if(stat(dir_path, &sb) == 0 && S_ISDIR(sb.st_mode))
