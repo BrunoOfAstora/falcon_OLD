@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 	 printf("\n\n Need to specify the file, use 'falcon -h' for help.\n\n"); break;
     }
 	save_384 = calculate_hash_384(userFileInput);
-    saveInFile(userFileInput, save_384);
+		saveInFile(userFileInput, save_384);
 	free(save_384);
 	break;
 
