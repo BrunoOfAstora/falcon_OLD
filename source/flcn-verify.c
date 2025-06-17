@@ -13,28 +13,15 @@
 
 #define MAX 512
 
-struct Tokens
-{
-	char *nameTok;
-	char *hashTok;
-};
-
-
-void verify_all(const char *userFileInput, char *savedFilePath)
-{
-	
-
-}
-
-
 void verify_hash(const char *userFileInput, char *savedFilePath) //<- Need to bee removed after, or at least modified, since this function will check a default dir
 {                                        
     char *str_buffer[2]; //The new string will store the copy of file name and hash of "savedPathFile"
+
     str_buffer[0] = malloc(MAX);
     str_buffer[1] = malloc(MAX);
 
     int i, j;    //iterators
-    i = j = 0;   //i
+    i = j = 0;  
 
     char line_buffer[MAX],
          *result,
@@ -93,7 +80,7 @@ void verify_hash(const char *userFileInput, char *savedFilePath) //<- Need to be
         printf("\n\033[1;33m[Warning]\033[0m Checksum Does Not Match!\n");
     }
 
-    if ((strcmp(str_buffer[1], sha384_result)) == 0) 
+    else if ((strcmp(str_buffer[1], sha384_result)) != 0) 
 	{
         printf("\n\033[1;32m[OK!]\033[0m Hash Checksum match.\n");
     }

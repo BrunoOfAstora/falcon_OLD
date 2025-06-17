@@ -14,9 +14,9 @@
 void saveInFile(char *file_name, char *file_hash)
 {
     char file_name_buffer[128], 
-         file_hash_buffer[128],
-         full_path[1024],
-         dir_path[1024];
+         file_hash_buffer[256],
+         full_path[512],
+         dir_path[512];
 
     const char *home;
 
@@ -42,9 +42,8 @@ void saveInFile(char *file_name, char *file_hash)
 
     if (mkdir(dir_path, 0755) == -1) 
 	{
-		if(stat(dir_path, &sb) == 0 && S_ISDIR(sb.st_mode))
-		{
-		}
+		if(stat(dir_path, &sb) == 0 && S_ISDIR(sb.st_mode)){}
+
 		else 
 		{
             perror("\nmkdir error\n");
