@@ -15,12 +15,19 @@
 
 void verify_hash(const char *userFileInput, char *savedFilePath) //<- Need to bee removed after, or at least modified, since this function will check a default dir
 {                                        
-    char *str_buffer[2]; //The new string will store the copy of file name and hash of "savedPathFile"
+    char *str_buffer[2],
+		 *dir_path[512]; //The new string will store the copy of file name and hash of "savedPathFile"
+
+	const char *home;
+		
+	struct dirent *dir;
 
     str_buffer[0] = malloc(MAX);
     str_buffer[1] = malloc(MAX);
+	
 
-    int i, j;    //iterators
+    int i, j;   //iterators
+
     i = j = 0;  
 
     char line_buffer[MAX],
@@ -29,19 +36,61 @@ void verify_hash(const char *userFileInput, char *savedFilePath) //<- Need to be
          *state,
          *sha384_result;
 
-    FILE *comparasion_file;
+	DIR *currDir;
+    FILE *cmp_file;
     FILE *original_file;
 
-    sha384_result = calculate_hash_384(userFileInput);
-
+    sha384_result = calculate_hash_384(userFileInput); //Change to basename() later
     original_file = fopen(userFileInput, "r");
 
+	home = getenv("HOME");
+	if(!home){ printf("\n\n'HOME' Directory not found\n\n"); return; }
+
+	snprintf(dir_path, sizeof(dir_path), "%s%s", home, "flcn-hashes");	
+
+	currDir = opendir(dir_path);
+
+	while((dir = readdir(currDir) != NULL))
+	{
+		if(dir->d_type == DT_REG)
+		{
+			const char *cmp_fname = dir->d_name;
+			cmp_file = fopen(cmp_fname, "r");
+			
+			if((result = fgets(line_buffer, MAX, cmp_file)) != NULL)			
+				token = strtok_r(result, "/", &state);
+			
+			while(token != NULL && i <= 1)
+				{
+					if(strlen(token) >= MAX)
+						{
+							printf("\n\nBuffer Overflow Avoided, the filename is too long.\n\n");
+							return;
+						}
+
+					strcpy(str_buffer[i], token);
+
+					token = strtok_r(NULL, "/", &state);
+					i++;
+				}
+		}
+
+	}
+
+	return;
+}
+
+
+ /*
+ 
     if (!original_file) 
 	{
         perror("\nerror in verify function while opening userFileInput\n");
         return;
     }
-
+	
+	currDir = opendir(dir_path);
+	
     comparasion_file = fopen(savedFilePath, "r");
 
     if (!comparasion_file) 
@@ -89,6 +138,9 @@ void verify_hash(const char *userFileInput, char *savedFilePath) //<- Need to be
 	 {
         printf("\n\033[1;33m[CAUTION]\033[0m Checksum Does Not Mactch!");
      }
+	
 
     return;
-}                                            
+}   
+
+*/                                         

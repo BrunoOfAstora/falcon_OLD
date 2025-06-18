@@ -2,7 +2,7 @@
 #include "flcn-verify-all.h"
 #include "flcn-sha384.h"
 
-#include <syss/stat.h>
+#include <sys/stat.h>
 #include <errno.h>
 #include <sys/types.h>
 #include <dirent.h>
@@ -22,6 +22,7 @@ struct Tokens
 void verify_all(const char *userFileInput, char *savedFilePath)
 {
 	struct Tokens *tok_ptr;
+
 	struct stat sb;
 	struct dirent *dir;
 	
