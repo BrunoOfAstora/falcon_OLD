@@ -6,6 +6,14 @@
 
 -Add file shredder
 
--Make a way to verify automaticaly
+-Add two options for the verify fundtion, one to verify files by comparing only hashes, and other to 
+	comapre files by name + hash. The advantage of second option, is that the program will consume less
+	process, since program will not have to iterate through all files, but the file name must be the 
+	same.
 
--Make the "save function" create a folder and save in it
+-->W.I.P
+	-Make a way to verify automaticaly 
+	
+
+-->Done!
+	-Make the "save function" create a folder and save in it
