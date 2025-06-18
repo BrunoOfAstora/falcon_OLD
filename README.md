@@ -3,7 +3,7 @@
 
 **Falcon** é uma ferramenta de linha de comando (CLI) escrita em **C**, focada em **segurança**, **integridade de arquivos** e **operações de manipulação segura de dados**.
 
-O principal objetivo é fornecer um conjunto de utilitários para:
+O principal objetivo é fornecer um conjunto de utilitários para :
 
 - Calcular e verificar hashes (ex: **SHA-256**, **SHA-384**, **MD5**)
 - Realizar operações seguras de remoção de arquivos (**shred**, futuramente)
