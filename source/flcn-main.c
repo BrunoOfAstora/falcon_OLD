@@ -84,12 +84,12 @@ int main(int argc, char *argv[])
 
 
     case CMD_VERIFY:
-        if (argc != 4)
+        if (argc != 3)
         {
             printf("\n\nNeed to specify the file, use 'falcon -h' for help.");
             break;
         }
-        verify_hash(userFileInput, argv[3]);
+        verify_hash(userFileInput);
         break;
 
 

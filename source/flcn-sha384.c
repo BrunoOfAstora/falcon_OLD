@@ -13,7 +13,7 @@ FILE *file;
 
 file = fopen(userFileInput, "rb");
 
-if(!file) { perror("\nfopen error\n"); return NULL; }
+if(!file) { perror("\nFile Not Found, please verify the name\n"); return NULL; }
 
 uint8_t buffer[BUFFER_FILE];
 unsigned char md[EVP_MAX_MD_SIZE];
