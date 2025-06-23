@@ -1,4 +1,4 @@
-<h1 align="center">F.A.L.C.O.N🦅</h1>
+<h1 align="center">F.A.L.C.O.N🦅</h1> (OLD)
 <h2 align="center"> File Analysis & Lib for Checksums Obfuscation & Nuking </h2>
 
 **Falcon** é uma ferramenta de linha de comando (CLI) escrita em **C**, focada em **segurança**, **integridade de arquivos** e **operações de manipulação segura de dados**.
